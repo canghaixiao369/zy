@@ -1,3 +1,5 @@
+CCTV19,webview://https://yangshipin.cn/tv/home?pid=600001859
+
 CCTV-1,video://https://tv.cctv.com/live/cctv1/
 
 CCTV-1,video://https://www.yangshipin.cn/tv/home?pid\u003d600001859

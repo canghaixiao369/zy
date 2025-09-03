@@ -25,6 +25,22 @@
             }
         },
         {
+            "name": "yoo体育(python)",
+            "type": 3,
+            "api": "./py/yoozb.py",
+            "ext": {
+                
+            }
+        },
+        {
+            "name": "360pai",
+            "type": 3,
+            "api": "./py/360pai.py",
+            "ext": {
+                
+            }
+        },
+        {
             "name": "webview专源",
             "type": 0,
             "playerType": 2,
@@ -668,7 +684,7 @@
             "quickSearch": 0,
             "filterable": 1,
             "ext": "./json/吾爱瑜伽.json",
-            "jar": "./jar/spiderdj.jar"
+            "jar": "./jar/spider.jar"
         },
         {
             "key": "车载DJ2",
@@ -679,7 +695,7 @@
             "quickSearch": 0,
             "filterable": 1,
             "ext": "./json/吾爱自用.json",
-            "jar": "./jar/spiderdj.jar"
+            "jar": "./jar/spider.jar"
         },
         {
             "key": "哔哩",
@@ -701,7 +717,307 @@
             "quickSearch": 1,
             "changeable": 0,
             "ext": "./json/ych.json",
-            "jar": "./jar/spiderdj.jar"
+            "jar": "./jar/spider.jar"
+        },
+        {
+            "key": "js_车载MV",
+            "name": "🚗车载┃音乐",
+            "type": 3,
+            "api": "./JS/lib/车载api.js",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./JS/车载MV.js"
+        },
+        {
+            "api": "./py/七猫短剧.py",
+            "filterable": 1,
+            "key": "23py_七猫短剧",
+            "name": "🐰七猫┃短剧",
+            "quickSearch": 1,
+            "searchable": 1,
+            "type": 3
+        },
+        {
+            "key": "Yqk",
+            "name": "一起🍁短剧",
+            "type": 3,
+            "api": "csp_Yqk",
+            "jar": "./jar/fengdou2.jar",
+            "searchable": 1,
+            "filterable": 1
+        },
+        {
+            "key": "雄鹰",
+            "name": "🦅天鹰┃App",
+            "type": 3,
+            "api": "csp_XiongYingGuard",
+            "jar": "./jar/RinpMUTd.png",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "timeout": 10
+        },
+        {
+            "key": "文才",
+            "name": "🌺文才┃秒播",
+            "type": 3,
+            "api": "csp_JpysGuard",
+            "jar": "./jar/RinpMUTd.png",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "timeout": 10
+        },
+        {
+            "key": "瓜子影视",
+            "name": "瓜子｜影视",
+            "type": 3,
+            "api": "csp_Gz360",
+            "jar": "./jar/spider11.jar",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1
+        },
+        {
+            "key": "麦田APP",
+            "name": "🙉麦田┃APP",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "ext": "./json/麦田APP.json",
+            "jar": "./jar/xbpq.jar"
+        },
+        {
+            "key": "秀儿影视",
+            "name": "🦈秀儿┃影视",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "ext": "./json/秀儿影视.json",
+            "jar": "./jar/xbpq.jar"
+        },
+        {
+            "key": "静月",
+            "name": "养生|京城",
+            "type": 3,
+            "api": "./api/drpy2.min.js",
+            "ext": "./JS/养生.js"
+        },
+        {
+            "key": "泥泥视频",
+            "name": "🍋泥泥┃视频",
+            "type": 3,
+            "api": "./api/drpy2.min.js",
+            "ext": "./JS/泥泥视频.js"
+        },
+        {
+            "key": "河马短剧",
+            "name": "🦛河马┃短剧",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/xyqxbpq.jar",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./json/河马短剧.json"
+        },
+        {
+            "key": "茄子短剧",
+            "name": "🍆茄子┃短剧",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/xyqxbpq.jar",
+            "ext": {
+                "简介": "沧海笑为您剧情介绍:+简介：&&",
+                "\u526f\u6807\u9898": "\u516c\u5b50\u4e13\u5c5e",
+                "线路标题": "panel-hd\">&&",
+                "分类url": "https://www.shanhuzs.com/fqsansw/5-{area}--{cateId}-----{catePg}---{year}.html",
+                "分类": "女频$女频恋爱#反转$反转爽#悬疑$脑洞悬疑#穿越$年代穿越#古装$古装仙侠#都市$现代都市"
+            }
+        },
+        {
+            "key": "✨七味短剧✨",
+            "name": "🍒七味┃短剧",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/xyqxbpq.jar",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./json/七味短剧.json"
+        },
+        {
+            "key": "甜圈",
+            "name": "🍡甜圈┃短剧",
+            "type": 3,
+            "api": "csp_DuanJuCgg",
+            "jar": "./jar/jd.jar",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "style": {
+                "type": "rect",
+                "ratio": 1.309
+            },
+            "ext": {
+                "siteUrl": "https://mov.cenguigui.cn",
+                "msg": "124421jh8lk39646pgruC6dATnyTtf6ewyst71opcsJfticyXxWGbU5x4zxzEQ5LWhshM7QSmwiAgf0H4RN8rjjuUPQPPsiTj8Yz48I27L5SoL/Lbg70J558Qnv6Dtdt9BeeyWciQnnqApDLzxuKF+nEHryocRY26k1efEO43zCfP69tVyTyWvQ/MT7q/J7KDiOdwg0CGUc0cPhVc3AiwU6ZXIapEVCaeJ1OkLO2LzfrGsCulTGV9LrN4N8omBYpohl4BgdDhg8SQwEh9MoFXC1M2AqzePjz+itosXK3VQ3Ch4ba88bCsZSAs56JWl570OQ5t3yuPDslC75Y1p4Y9x9OOnztqiDqRbgpaXR5KWKYWfjU9T1H2SXW3uAmq9Z2GQKDrAQT7gB35NJeagOshSRZScjiS3Ss7lf/6iMfs9NInk9DfLj/H/9HCcIDRr1AG/ZGgLLtB/doGr0l/oENwrHwu+kLjzqWcmiAPcaLdbeeK18hxlYJBvXIlfjoWgopvFnm7338rR8k7EwtnU39fRJph5WcuPdvL5ZivGdWO+EYQ47zLhX038Vcju8iF3omFTj5W6D9FEOXryKIMCBgi8G5t+I73iaFCGGzTA=="
+            }
+        },
+        {
+            "key": "新河马短剧",
+            "name": "🦛新河马┃短剧",
+            "type": 3,
+            "api": "csp_DuanJuHm",
+            "jar": "./jar/jd.jar",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "style": {
+                "type": "rect",
+                "ratio": 1.309
+            },
+            "ext": {
+                "siteUrl": "https://freevideo.zqqds.cn",
+                "msg": "124421jh8lk39646pgruC6dATnyTtf6ewyst71opcsJfticyXxWGbU5x4zxzEQ5LWhshM7QSmwiAgf0H4RN8rjjuUPQPPsiTj8Yz48I27L5SoL/Lbg70J558Qnv6Dtdt9BeeyWciQnnqApDLzxuKF+nEHryocRY26k1efEO43zCfP69tVyTyWvQ/MT7q/J7KDiOdwg0CGUc0cPhVc3AiwU6ZXIapEVCaeJ1OkLO2LzfrGsCulTGV9LrN4N8omBYpohl4BgdDhg8SQwEh9MoFXC1M2AqzePjz+itosXK3VQ3Ch4ba88bCsZSAs56JWl570OQ5t3yuPDslC75Y1p4Y9x9OOnztqiDqRbgpaXR5KWKYWfjU9T1H2SXW3uAmq9Z2GQKDrAQT7gB35NJeagOshSRZScjiS3Ss7lf/6iMfs9NInk9DfLj/H/9HCcIDRr1AG/ZGgLLtB/doGr0l/oENwrHwu+kLjzqWcmiAPcaLdbeeK18hxlYJBvXIlfjoWgopvFnm7338rR8k7EwtnU39fRJph5WcuPdvL5ZivGdWO+EYQ47zLhX038Vcju8iF3omFTj5W6D9FEOXryKIMCBgi8G5t+I73iaFCGGzTA=="
+            }
+        },
+        {
+            "key": "蚂蚁",
+            "name": "蚂蚁|1080",
+            "type": 3,
+            "api": "./JS/lib/发全api.js",
+            "ext": "./JS/蚂蚁.js"
+        },
+        {
+            "key": "大米星球",
+            "name": "大米|1080",
+            "type": 3,
+            "api": "./JS/lib/发全api.js",
+            "ext": "./JS/大米星球.js"
+        },
+        {
+            "key": "发全",
+            "name": "发全|1080",
+            "type": 3,
+            "api": "./JS/lib/发全api.js",
+            "ext": "./JS/发全.js"
+        },
+        {
+            "key": "枫林网",
+            "name": "枫林网",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/spider11.jar",
+            "ext": {
+                "请求头": "User-Agent$MOBILE_UA",
+                "编码": "UTF-8",
+                "分类url": "https://8maple.me/show/{cateId}{year}/{class}/{area}/{catePg}.html",
+                "分类": "电影$1#剧集$2#综艺$3#动漫$4#伦理片$27#",
+                "简介": "🍁沧海笑🍁水印广告勿信，谨防诈骗🍁"
+            }
+        },
+        {
+            "key": "影视森林",
+            "name": "影视森林",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/xyqxbpq.jar",
+            "ext": {
+                "请求头": "User-Agent$MOBILE_UA",
+                "编码": "UTF-8",
+                "图片": "data-original=\"&&\"",
+                "分类": "电影$1#电视剧$2#综艺$3#动漫$4#",
+                "分类url": "https://hc34567.com/hcvodshow/{cateId}-{area}-{by}-{class}-{lang}-{letter}---{catePg}---{year}.html",
+                "简介": "🍁沧海笑 广告勿信，🍁谨防诈骗🍁"
+            }
+        },
+        {
+            "key": "茶杯狐官网",
+            "name": "茶杯狐官网",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/xyqxbpq.jar",
+            "ext": {
+                "请求头": "User-Agent$MOBILE_UA",
+                "编码": "UTF-8",
+                "分类url": "https://www.bnjxjd.com/vodshow/id/{cateId}/page/{catePg}.html",
+                "分类": "电影$1#电视剧$2#综艺$3#动漫$4",
+                "简介": "🍁沧海笑🍁水印广告勿信，谨防诈骗🍁"
+            }
+        },
+        {
+            "key": "柚子资源",
+            "name": "❤️柚子资源",
+            "type": 0,
+            "api": "https://api.yzzy-api.com/inc/api.php",
+            "searchable": 1,
+            "quickSearch": 1,
+            "categories": [
+                "动作片",
+                "喜剧片",
+                "爱情片",
+                "科幻片",
+                "恐怖片",
+                "剧情片",
+                "战争片",
+                "国产剧",
+                "台湾剧",
+                "韩国剧",
+                "欧美剧",
+                "香港剧",
+                "泰国剧",
+                "日本剧",
+                "动画片",
+                "海外剧",
+                "纪录片",
+                "大陆综艺",
+                "港台综艺",
+                "日韩综艺",
+                "欧美综艺",
+                "国产动漫",
+                "日韩动漫",
+                "欧美动漫",
+                "港台动漫",
+                "海外动漫",
+                "搞   笑",
+                "音   乐",
+                "影   视",
+                "汽   车",
+                "短剧大全",
+                "体  育"
+            ]
+        },
+        {
+            "key": "四海",
+            "name": "四海🔥影院",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/spider11.jar",
+            "ext": {
+                "请求头": "User-Agent$MOBILE_UA",
+                "编码": "UTF-8",
+                "分类": "电影$1#电视剧$tv#综艺$3#动漫$4#直播$live",
+                "分类url": "https://www.kanying.pro/menu/{cateId}/0{catePg}/",
+                "简介": "🍁沧海笑🍁水印广告勿信，谨防诈骗🍁"
+            }
+        },
+        {
+            "key": "飞飞",
+            "name": "飞飞影院",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/spider11.jar",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": {
+                "请求头": "User-Agent$MOBILE_UA",
+                "编码": "UTF-8",
+                "分类url": "https://www.kaixinfang.com/?ref=16map.com/vodtype/fenlei/{cateId}/{year}/{class}/{area}/{catePg}.html",
+                "分类": "电影$1#线上影院$2#连续剧$3#动漫$4",
+                "简介": "❤️沧海笑❤️水印广告勿信，谨防诈骗🍁"
+            }
         },
         {
             "key": "Guazi",
@@ -829,7 +1145,7 @@
             "name": "🐥网盘集合|4K",
             "type": 3,
             "api": "csp_网盘集合",
-            "jar": "./jar/custom_spider.jar",
+            "jar": "./jar/pg.jar",
             "searchable": 1,
             "filterable": 0,
             "switchable": 0,
@@ -2712,7 +3028,6 @@
                 }
             }
         },
-        
         {
             "name": "小蜜蜂",
             "url": "https://jx.xmflv.cc/?url=",
@@ -2745,7 +3060,6 @@
                 "User-Agent": "Mozilla/5.0"
             }
         },
-        
         {
             "name": "无上",
             "type": "1",
@@ -2942,7 +3256,6 @@
                 "User-Agent": "Mozilla/5.0"
             }
         },
-        
         {
             "name": "VIP1",
             "type": 1,

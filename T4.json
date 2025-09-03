@@ -1,6 +1,13 @@
 {
     "spider": "",
     "sites": [
+    
+        {
+            "key": "T4-tangdou",
+            "name": "音乐-糖豆(T4)",
+            "type": 4,
+            "api": "https://catbox.n13.club/t9/tangdou.php"
+        },
         {
             "key": "T4-douban",
             "name": "影视-豆瓣(T4)",
@@ -115,12 +122,7 @@
             "type": 4,
             "api": "https://catbox.n13.club/t9/tuxiaobei.php"
         },
-        {
-            "key": "T4-tangdou",
-            "name": "音乐-糖豆(T4)",
-            "type": 4,
-            "api": "https://catbox.n13.club/t9/tangdou.php"
-        },
+        
         {
             "key": "T4-djuu",
             "name": "音乐-DJUU(T4)",
