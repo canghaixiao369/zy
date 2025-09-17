@@ -35,7 +35,13 @@
             "filterable": 1,
             "playerType": 2
         },
-        
+        {"key":"苹果资源","name":"苹果资源(🔞)","type":0,"api":"https://www.pgxdy.com/api/xml.php","searchable":0,"quickSearch":0},
+{"key":"淫水机云","name":"淫水机云(🔞)","type":0,"api":"https://www.xrbsp.com/api/xml.php","searchable":0,"quickSearch":0},
+{"key":"美少女云","name":"美少女云(🔞)","type":0,"api":"https://www.msnii.com/api/xml.php","searchable":0,"quickSearch":0},
+{"key":"香奶儿云","name":"香奶儿云(🔞)","type":0,"api":"https://www.gdlsp.com/api/xml.php","searchable":0,"quickSearch":0},
+{"key":"开心果云","name":"开心果云(🔞)","type":0,"api":"https://www.kxgav.com/api/xml.php","searchable":0,"quickSearch":0},
+{"key":"玉兔资源","name":"玉兔资源(🔞)","type":1,"api":"https://apiyutu.com/api.php/provide/vod","playerUrl":""},
+{"key":"奶香资源","name":"奶香资源(🔞)","type":1,"api":"https://naixxzy.com/api.php/provide/vod","playerUrl":""},
         {
             "key": "采集G(jkun)",
             "name": "撸铁🍈甜瓜",
