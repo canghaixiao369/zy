@@ -358,7 +358,7 @@
     ],
     "spider": "./jar/FG.jar",
     "logo": "./logo/logo4.gif",
-    "wallpaper": "./logo/index.php",
+    "wallpaper": "./logo/",
     "sites": [
        
         {
