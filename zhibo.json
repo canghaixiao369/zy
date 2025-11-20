@@ -1,0 +1,43 @@
+{
+    "lives": [
+        {
+            "name": "JRS04(M3U8)",
+            "url": "http://iptv.cqshushu.com/jrs.php?p=m3u8&type=m3u&token=852d1774e4146d1ad99f928f8d0c632b"
+        },
+        {
+            "name": "88KQ(M3U)",
+            "url": "http://iptv.cqshushu.com/88kq.php?p=video&type=m3u&token=852d1774e4146d1ad99f928f8d0c632b"
+        },
+        {
+            "name": "74体育(M3U)",
+            "url": "http://iptv.cqshushu.com/74001.php?type=m3u&token=852d1774e4146d1ad99f928f8d0c632b"
+        },
+        {
+            "name": "JZB(M3U)",
+            "url": "http://iptv.cqshushu.com/jzb25.php?type=m3u&token=852d1774e4146d1ad99f928f8d0c632b",
+            "epg": "https://epg.112114.xyz/?ch={name}&date={date}"
+        },
+        {
+            "name": "807(M3U)",
+            "url": "http://iptv.cqshushu.com/iptv807.php?jk=m3u&token=852d1774e4146d1ad99f928f8d0c632b",
+            "epg": "https://epg.112114.xyz/?ch={name}&date={date}",
+            "header": {
+                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1",
+                "Referer": "http://m.iptv807.com/"
+            }
+        },
+        {
+            "name": "beesport(M3U)",
+            "url": "http://iptv.cqshushu.com/beesport.php?token=852d1774e4146d1ad99f928f8d0c632b",
+            "epg": "https://epg.112114.xyz/?ch={name}&date={date}",
+            "header": {
+                "Referer": "https://new-player.lioncdn.net/"
+            }
+        },
+        {
+            "name": "电视直播 (M3U格式)",
+            "url": "http://iptv.cqshushu.com/jiekou.php?jk=m3u&token=852d1774e4146d1ad99f928f8d0c632b",
+            "epg": "https://epg.112114.xyz/?ch={name}&date={date}"
+        }
+    ]
+}

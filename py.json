@@ -2,7 +2,17 @@
     "spider": "",
     "wallpaper": "https://bing.img.run/rand.php",
     "sites": [
-   
+   {
+            "key": "py_xiaokeyunyue",
+            "name": "小可音乐",
+            "type": 3,
+            "api": "./py/小可音乐.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+        },
         {
             "key": "py_yangshipianku",
             "name": "央视片库",
