@@ -1,9 +1,9 @@
 {
     "lives": [
         {
-            "name": "蜀小果IPTV",
+            "name": "城建学院",
             "type": 0,
-            "url": "https://gh-proxy.com/https://github.com/a2256569/tv/blob/1e74c3dee733f1b1fb05f9487507a474ed979822/SXG",
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/lwzlinyi/ziyong/refs/heads/main/live",
             "epg": "http://epg.51zmt.top:8000/e.xml",
             "ua": "okhttp/3.15,AptvPlayer/1.4.0",
             "timeout": "3",
