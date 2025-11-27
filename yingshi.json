@@ -1,7 +1,17 @@
 {
     "lives": [
+        
+        
         {
-            "name": "城建学院",
+            "name": "河南电视",
+            "type": 0,
+            "playerType": 2,
+            "url": "./tv/河南.txt",
+            "ua": "okhttp/4.1.0",
+            "epg": "https://epg.112114.eu.org/?ch={name}&date={date}"
+        },
+        {
+            "name": "河南城建学院",
             "type": 0,
             "url": "https://gh-proxy.com/https://raw.githubusercontent.com/lwzlinyi/ziyong/refs/heads/main/live",
             "epg": "http://epg.51zmt.top:8000/e.xml",
@@ -628,6 +638,9 @@
             "quickSearch": 1,
             "filterable": 1
         },
+        
+        {"key": "瓜子py","name": "🚗┃瓜子┃py","type": 3,"api": "./py/瓜子.py","searchable": 1,"quickSearch": 0,"filterable": 0,"changeable": 0},	
+        
         {
             "key": "华数",
             "name": "🐷星华｜星源",
