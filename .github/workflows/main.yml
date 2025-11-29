@@ -36,7 +36,7 @@ jobs:
       run: mkdir -p tv
 
     - name: Run TangDou crawler
-      run: python scripts/糖豆.py
+      run: python ./糖豆.py
 
     - name: Check for changes
       id: git-check
