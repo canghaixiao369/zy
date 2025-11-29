@@ -3180,7 +3180,7 @@
             "searchable": 0,
             "changeable": 0,
             "indexs": 0,
-            "ext": "https://d.kstore.dev/download/11354/market.json"
+            "ext": "./json/market1.json"
         },
         {
             "key": "應用商店",
