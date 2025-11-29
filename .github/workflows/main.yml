@@ -37,7 +37,7 @@ jobs:
 
     - name: 运行爬虫
 
-      run: python ${{ github.workspace }}/scripts/糖豆.py
+      run: python ${{ github.workspace }}/糖豆.py
 
     - name: 检查是否有更改
       id: git-check
