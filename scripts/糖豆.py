@@ -155,7 +155,7 @@ def save_to_txt(videos_list, filename=None):
 
     if filename is None:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"/storage/emulated/0/@内置接口学习/自制接口/zyck/tv/糖豆.txt"
+        filename = f"./tv/糖豆.txt"
 
     try:
         with open(filename, 'w', encoding='utf-8') as f:
