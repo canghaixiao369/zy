@@ -1,212 +1,222 @@
 import requests
-import json
-import uuid
 import time
-import random
-import os
-from urllib.parse import urlencode
+from datetime import datetime
+import json
 
-def get_tangdou_videos():
-    session = requests.Session()
-    
-    # 更完整的请求头
-    session.headers.update({
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
-        "Referer": "https://www.tangdou.com/videos",
-        "Accept": "application/json, text/plain, */*",
-        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Origin": "https://www.tangdou.com",
-        "Sec-Fetch-Dest": "empty",
-        "Sec-Fetch-Mode": "cors",
-        "Sec-Fetch-Site": "same-site",
-        "X-Requested-With": "XMLHttpRequest"
-    })
-    
-    page = 1
-    num = 100
+
+def fetch_tangdou_videos_complete():
+    """
+    完整获取糖豆广场舞视频数据，模拟加载更多直到无新数据
+    """
     base_url = "https://api-h5.tangdou.com/mtangdou/home/feed"
-    results = []
-    seen_urls = set()
-    
-    # 防止无效循环的计数器
-    empty_page_count = 0
-    max_empty_pages = 3
-    fail_count = 0
-    max_fail_count = 5
-    max_pages = 70
-    
-    try:
-        print("开始初始化...")
-        
-        # 先访问主页获取必要Cookie
-        home_response = session.get(
-            "https://www.tangdou.com/videos", 
-            timeout=10,
-            headers={
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
-            }
-        )
-        
-        print(f"主页访问状态: {home_response.status_code}")
-        
-        time.sleep(random.uniform(2, 3))
-        
-        while (empty_page_count < max_empty_pages and 
-               fail_count < max_fail_count and 
-               page <= max_pages):
-            
-            current_uuid = str(uuid.uuid4())
-            timestamp = int(time.time() * 1000)
-            
-            params = {
-                "page": page,
-                "num": num,
-                "uuid": current_uuid,
-                "timestamp": timestamp,
-                "source": "h5",
-                "version": "1.0.0"
-            }
-            
-            session.headers.update({
-                "Cookie": f"uuid={current_uuid}",
-                "Referer": f"https://www.tangdou.com/videos?page={page}"
-            })
-            
-            print(f"\n=== 正在请求第{page}页 ===")
-            
-            try:
-                response = session.get(
-                    base_url,
-                    params=params,
-                    timeout=20,
-                    verify=True
-                )
-                
-                print(f"响应状态码: {response.status_code}")
-                print(f"响应内容长度: {len(response.text)}")
-                
-                if response.status_code == 403:
-                    print("⚠️ 遇到403禁止访问，可能被反爬机制拦截")
-                    fail_count += 1
-                    time.sleep(random.uniform(10, 15))
-                    continue
-                elif response.status_code == 429:
-                    print("⚠️ 请求过于频繁，被限流")
-                    fail_count += 1
-                    time.sleep(random.uniform(30, 60))
-                    continue
-                elif response.status_code != 200:
-                    print(f"❌ 请求失败，状态码: {response.status_code}")
-                    fail_count += 1
-                    time.sleep(random.uniform(5, 8))
-                    continue
-                
-                # 尝试解析JSON
-                try:
-                    data = response.json()
-                    print(f"✅ JSON解析成功")
-                except json.JSONDecodeError as e:
-                    print(f"❌ JSON解析失败: {e}")
-                    fail_count += 1
-                    time.sleep(random.uniform(3, 5))
-                    continue
-                
-                # 检查API返回码
-                api_code = data.get("code")
-                api_message = data.get("message", "无错误信息")
-                
-                if api_code is not None and api_code != 200:
-                    print(f"❌ API返回错误: code={api_code}, message={api_message}")
-                    fail_count += 1
-                    time.sleep(random.uniform(5, 8))
-                    continue
-                
-                # 获取数据
-                feed_data = data.get("data", [])
-                
-                if not feed_data:
-                    empty_page_count += 1
-                    print(f"📭 第{page}页无数据，连续空页{empty_page_count}/{max_empty_pages}")
-                    page += 1
-                    time.sleep(random.uniform(2, 4))
-                    continue
-                else:
-                    empty_page_count = 0
-                    fail_count = 0
-                    print(f"📊 获取到{len(feed_data)}条数据")
-                
-                # 提取视频信息
-                page_items = 0
-                duplicate_count = 0
-                for index, item in enumerate(feed_data):
-                    video_id = item.get("video_id") or item.get("vid") or item.get("id")
-                    title = item.get("title", "").strip().replace(",", "，")
-                    
-                    if video_id and title:
-                        video_url = f"http://zjk.xozv.top/糖豆.php?id={video_id}"
-                        
-                        # 检查是否重复
-                        if video_url in seen_urls:
-                            duplicate_count += 1
-                            continue
-                        
-                        # 添加到结果和已见集合
-                        results.append(f"{title},{video_url}")
-                        seen_urls.add(video_url)
-                        page_items += 1
-                
-                print(f"✅ 第{page}页处理完成，新增{page_items}条，跳过{duplicate_count}条重复，累计{len(results)}条")
-                page += 1
-                
-                # 随机延迟，模拟人工操作
-                delay = random.uniform(3, 6)
-                print(f"⏳ 等待{delay:.1f}秒后继续...")
-                time.sleep(delay)
-                
-            except requests.exceptions.Timeout:
-                print(f"⏰ 第{page}页请求超时")
-                fail_count += 1
-                time.sleep(random.uniform(8, 12))
-            except Exception as e:
-                print(f"❌ 处理第{page}页时发生错误: {str(e)}")
-                fail_count += 1
-                time.sleep(random.uniform(3, 5))
-        
-        # 输出停止原因
-        print("\n=== 采集结束 ===")
-        if empty_page_count >= max_empty_pages:
-            print(f"📭 已连续{max_empty_pages}页无数据，停止采集")
-        elif fail_count >= max_fail_count:
-            print(f"❌ 已连续失败{max_fail_count}次，停止采集")
-        elif page > max_pages:
-            print(f"📖 已达到最大页数限制{max_pages}页，停止采集")
-        else:
-            print("✅ 采集正常完成")
-            
-        print(f"📊 最终结果: 共处理{page-1}页，获取{len(results)}条去重后的视频")
-    
-    except Exception as e:
-        print(f"💥 程序初始化失败: {str(e)}")
-        import traceback
-        traceback.print_exc()
-    
-    # 保存结果到tv文件夹
-    if results:
-        # 确保tv目录存在
-        os.makedirs("tv", exist_ok=True)
-        filename = "tv/糖豆.txt"
-        with open(filename, "w", encoding="utf-8") as f:
-            f.write("\n".join(results))
-        print(f"💾 数据已保存到 '{filename}'，共{len(results)}条去重后的记录")
-        
-        # 显示前几条结果作为样例
-        print("\n📋 前5条结果样例:")
-        for i, result in enumerate(results[:5]):
-            print(f"  {i+1}. {result}")
-    else:
-        print("😞 未获取到任何数据")
+    all_videos = []
+    seen_ids = set()
+    page_count = 0
+    consecutive_empty = 0  # 连续空页计数器
+    max_consecutive_empty = 3  # 最大连续空页数
+    max_pages = 180  # 最多获取180页
 
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Referer': 'https://www.tangdou.com/',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'Origin': 'https://www.tangdou.com',
+    }
+
+    print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} 开始完整获取糖豆广场舞视频数据...")
+    print(f"模拟'点击加载更多'行为，最多获取{max_pages}页，或直到无新数据")
+
+    start_time = time.time()
+
+    try:
+        while page_count < max_pages and consecutive_empty < max_consecutive_empty:
+            page_count += 1
+            params = {
+                'page': page_count,
+                'num': 20,  # 每页数量适中
+                'uuid': '',
+                'timestamp': int(time.time() * 1000)
+            }
+
+            print(f"\n正在获取第 {page_count}/{max_pages} 页...", end=" ")
+
+            try:
+                response = requests.get(base_url, params=params, headers=headers, timeout=20)
+                response.raise_for_status()
+                data = response.json()
+
+                if data.get('code') != 0:
+                    print(f"API返回错误: {data.get('msg', '未知错误')}")
+                    consecutive_empty += 1
+                    continue
+
+                videos = data.get('data', [])
+
+                if not videos:
+                    print("本页无数据")
+                    consecutive_empty += 1
+                    continue
+
+                # 重置连续空页计数器
+                consecutive_empty = 0
+
+                page_videos = []
+                new_videos_count = 0
+                duplicate_count = 0
+
+                for video in videos:
+                    video_id = str(video.get('vid', ''))
+                    video_title = video.get('title', '').strip()
+
+                    if not video_id or not video_title:
+                        continue
+
+                    # 清理标题中的特殊字符
+                    video_title = video_title.replace(',', '，').replace('\n', ' ').replace('\r', ' ')
+
+                    # 检查是否重复
+                    if video_id in seen_ids:
+                        duplicate_count += 1
+                        continue
+
+                    # 生成最终URL
+                    final_url = f"http://zjk.xozv.top/糖豆.php?id={video_id}"
+                    video_record = f"{video_title},{final_url}"
+
+                    page_videos.append(video_record)
+                    seen_ids.add(video_id)
+                    new_videos_count += 1
+
+                all_videos.extend(page_videos)
+
+                print(f"获取 {len(videos)} 个视频，新增 {new_videos_count} 个，重复 {duplicate_count} 个")
+                print(f"当前总计: {len(all_videos)} 个唯一视频")
+
+                # 显示本页前几个新视频标题作为参考
+                if page_videos:
+                    print("本页新增视频示例:")
+                    for i, video in enumerate(page_videos[:3]):
+                        title = video.split(',')[0]
+                        print(f"  {i + 1}. {title[:50]}{'...' if len(title) > 50 else ''}")
+
+                # 如果本页数据量较少，可能接近末尾
+                if len(videos) < params['num']:
+                    print(f"注意: 本页数据量({len(videos)})小于请求量({params['num']})，可能接近数据末尾")
+
+            except requests.exceptions.RequestException as e:
+                print(f"网络请求失败: {e}")
+                consecutive_empty += 1
+            except json.JSONDecodeError as e:
+                print(f"JSON解析失败: {e}")
+                consecutive_empty += 1
+
+            # 延迟控制，避免请求过快
+            time.sleep(1.5)
+
+            # 每10页显示一次进度
+            if page_count % 10 == 0:
+                elapsed = time.time() - start_time
+                print(
+                    f"\n=== 进度报告: 已获取 {page_count}/{max_pages} 页，{len(all_videos)} 个视频，耗时 {elapsed:.1f} 秒 ===")
+
+        # 退出循环的原因
+        if page_count >= max_pages:
+            print(f"\n已达到最大页数限制 {max_pages} 页")
+        elif consecutive_empty >= max_consecutive_empty:
+            print(f"\n连续 {max_consecutive_empty} 页无新数据，停止获取")
+        else:
+            print("\n数据获取完成")
+
+    except KeyboardInterrupt:
+        print(f"\n用户中断，已获取 {len(all_videos)} 个视频")
+    except Exception as e:
+        print(f"\n获取过程中发生未知错误: {e}")
+
+    end_time = time.time()
+    total_time = end_time - start_time
+
+    print(f"\n数据获取完成！")
+    print(f"总页数: {page_count}")
+    print(f"总视频数: {len(all_videos)}")
+    print(f"总耗时: {total_time:.2f} 秒")
+    print(f"平均每页: {total_time / page_count:.2f} 秒" if page_count > 0 else "")
+
+    return all_videos
+
+
+def save_to_txt(videos_list, filename=None):
+    """
+    将视频列表保存到txt文件
+    """
+    if not videos_list:
+        print("没有数据可保存")
+        return
+
+    if filename is None:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"/storage/emulated/0/@内置接口学习/自制接口/zyck/tv/糖豆.txt"
+
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            # 写入文件头
+            f.write(f"# 糖豆广场舞视频数据 - 采集时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"# 总视频数: {len(videos_list)}\n")
+            f.write("# 格式: 视频标题,视频URL\n")
+
+            for video in videos_list:
+                f.write(video + '\n')
+
+        print(f"数据已保存到 {filename}，共 {len(videos_list)} 条记录")
+
+        # 显示统计信息
+        print("\n数据统计:")
+        print(f"  总视频数: {len(videos_list)}")
+
+        # 显示前几条记录作为示例
+        print("\n前5条记录示例:")
+        for i, video in enumerate(videos_list[:5]):
+            title, url = video.split(',', 1)
+            print(f"  {i + 1}. 标题: {title}")
+            print(f"     链接: {url}")
+
+    except Exception as e:
+        print(f"保存文件时出错: {e}")
+
+
+def analyze_videos(videos_list):
+    """
+    简单分析视频数据
+    """
+    if not videos_list:
+        return
+
+    print("\n数据分析:")
+    print(f"总视频数量: {len(videos_list)}")
+
+    # 分析标题长度
+    title_lengths = [len(video.split(',')[0]) for video in videos_list]
+    avg_title_length = sum(title_lengths) / len(title_lengths)
+    print(f"平均标题长度: {avg_title_length:.1f} 字符")
+
+    # 找出最长的标题
+    longest_idx = title_lengths.index(max(title_lengths))
+    longest_title = videos_list[longest_idx].split(',')[0]
+    print(f"最长标题: {longest_title[:80]}{'...' if len(longest_title) > 80 else ''}")
+
+
+# 主程序
 if __name__ == "__main__":
-    print("🚀 开始获取糖豆视频信息...")
-    get_tangdou_videos()
+    print("糖豆广场舞视频完整采集程序")
+    print("=" * 50)
+
+    # 获取所有视频数据
+    videos_data = fetch_tangdou_videos_complete()
+
+    # 保存到txt文件
+    if videos_data:
+        save_to_txt(videos_data)
+        analyze_videos(videos_data)
+        print("\n程序执行完毕！")
+    else:
+        print("未获取到任何视频数据")
