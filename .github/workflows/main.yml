@@ -3,7 +3,7 @@ name: 糖豆数据采集
 on:
   schedule:
     # 每天UTC时间2点运行（北京时间10点）
-    - cron: '0 2 * /3 *'
+    - cron: '0 55 * /3 *'
   workflow_dispatch:  # 允许手动触发
 
 jobs:
@@ -20,18 +20,18 @@ jobs:
         python-version: '3.9'
         
     - name: 安装依赖
-      run: |
+      run:  
         python -m pip install --upgrade pip
         pip install requests
         
     - name: 运行爬虫
-      run: |
+      run:  
         python 糖豆.py
         
     - name: 提交变更
-      run: |
+      run:  
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add -A
-        git diff-index --quiet HEAD || git commit -m "自动更新糖豆视频数据"
+        git diff-index --quiet HEAD    git commit -m "自动更新糖豆视频数据"
         git push
