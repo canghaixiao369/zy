@@ -3,7 +3,7 @@ name: tangdou
 on:
   push:
   schedule:
-    - cron: '30 23 * * *'
+    - cron: '30 23 * /3 *'
   
     
 
@@ -42,7 +42,5 @@ jobs:
           git config --local user.email "772109739@qq.com"
           git config --local user.name "canghaixiao"
           git add .
-          git commit *.txt -m "Add generated file"
-          git commit *.m3u -m "Add generated file"
           #git pull --rebase
           git push -f
