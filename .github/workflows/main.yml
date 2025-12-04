@@ -40,16 +40,25 @@ jobs:
       run: |
         python new.py
 
-    - name: 如果有更改，则提交并推送  # 如果有更改，则提交并推送
-      run: |
-        git config --local user.email "772109739@qq.com"
-        git config --local user.name "沧海笑"
-        git add -A
-        if ! git diff --staged --quiet; then
-          git commit -m "Auto-update live files"
-          git pull --rebase
-          git push
-        fi
-
+   - name: 如果有更改，则提交并推送
+  run: |
+    git config --local user.email "772109739@qq.com"
+    git config --local user.name "沧海笑"
+    
+    # 先获取最新更改，但不要合并
+    git fetch origin
+    
+    # 重置到远程最新版本
+    git reset --hard origin/main
+    
+    # 重新添加所有文件（包含新生成的）
+    git add -A
+    
+    if ! git diff --staged --quiet; then
+      git commit -m "Auto-update live files $(date '+%Y-%m-%d %H:%M:%S')"
+      git push
+    else
+      echo "没有更改需要提交"
+    fi
     env:
       TZ: Asia/Shanghai  # 设置时区为上海
