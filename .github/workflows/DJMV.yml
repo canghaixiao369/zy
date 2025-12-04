@@ -2,7 +2,7 @@ name: DJMV
 
 on:
   schedule:
-    - cron: '55 0 */2 * *'  # 每2天凌晨00点55分执行任务（上海时区的UTC时间）
+    - cron: '40 0 */2 * *'  # 每2天凌晨00点40分执行任务（上海时区的UTC时间）
   workflow_dispatch:  # 允许手动触发工作流
 
 jobs:
