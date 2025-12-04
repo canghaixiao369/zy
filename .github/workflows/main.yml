@@ -3,7 +3,7 @@ name: 糖豆数据采集
 on:
   schedule:
     # 每天UTC时间2点运行（北京时间10点）
-    - cron: '0 55 * /3 *'
+  
   workflow_dispatch:  # 允许手动触发
 
 jobs:
