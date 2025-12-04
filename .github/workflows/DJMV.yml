@@ -1,0 +1,58 @@
+name: 糖豆
+
+on:
+  schedule:
+    - cron: '0 0 */2 * *'  # 每2天凌晨00点0分执行任务（UTC时间）
+  workflow_dispatch:  # 允许手动触发工作流
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest  # 使用最新的Ubuntu运行器
+    env:
+      TZ: Asia/Shanghai  # 设置时区为上海
+    steps:
+    - name: 检出代码库
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # 获取完整历史记录
+
+    - name: 设置Python环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 安装系统依赖
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ffmpeg
+
+    - name: 安装Python依赖
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests aiohttp
+
+    - name: 执行主脚本
+      run: |
+        python 172mv.py
+
+    - name: 检查是否有更改并提交
+      if: success()
+      run: |
+        # 配置Git用户
+        git config --global user.email "772109739@qq.com"
+        git config --global user.name "沧海笑"
+        
+        # 检查tv/DJMV.txt是否有更改
+        if git diff --quiet HEAD tv/DJMV.txt; then
+          echo "没有检测到tv/DJMV.txt文件的更改"
+          exit 0
+        fi
+        
+        # 只添加tv/DJMV.txt文件
+        git add tv/DJMV.txt
+        
+        # 提交更改
+        git commit -m "自动更新DJMV直播源 $(date '+%Y-%m-%d %H:%M:%S')"
+        
+        # 推送更改
+        git push
