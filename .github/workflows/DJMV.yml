@@ -2,14 +2,15 @@ name: DJMV
 
 on:
   schedule:
-    - cron: '39 0 */2 * *'  # 每2天凌晨00点55分执行任务（上海时区的UTC时间）
-  workflow_dispatch:  # 允许手动触发工作流
+    - cron: '35 0 */2 * *'   # 每2天凌晨00点55分执行任务（上海时区的UTC时间）
+  workflow_dispatch:   # 允许手动触发工作流
 
 jobs:
   run_script:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai  # 设置时区为上海
+      
       
     steps:
     - name: 检出代码库
@@ -52,40 +53,24 @@ jobs:
       run: |
         python 172mv.py
 
-    - name: 检查是否有更改并提交
+    - name: 强制推送更改
       if: success()
       run: |
         git config --global user.email "772109739@qq.com"
         git config --global user.name "沧海笑"
         
-        # 先检查文件是否存在
-        if [ -f "tv/DJMV.txt" ]; then
-          echo "tv/DJMV.txt 文件存在"
-          # 文件存在，检查是否有更改
-          if git diff --quiet HEAD tv/DJMV.txt; then
-            echo "没有检测到tv/DJMV.txt文件的更改"
-            exit 0
-          else
-            echo "检测到tv/DJMV.txt文件有更改"
-            git add tv/DJMV.txt
-          fi
+        # 检查是否有任何更改（包括添加、修改或删除）
+        if ! git status --porcelain tv/DJMV.txt 2>/dev/null | grep -q .; then
+          echo "没有检测到tv/DJMV.txt文件的更改"
         else
-          echo "tv/DJMV.txt 文件不存在（可能已被删除）"
-          # 如果文件被删除，需要从git中删除
-          if git ls-files --error-unmatch tv/DJMV.txt >/dev/null 2>&1; then
-            echo "从git中删除tv/DJMV.txt文件"
-            git rm tv/DJMV.txt
-          else
-            echo "文件未在git跟踪中，无需删除"
-            exit 0
-          fi
+          echo "检测到tv/DJMV.txt文件有更改"
         fi
         
-        # 拉取远程最新更改
-        git pull origin main --rebase --autostash
+        # 添加所有更改（包括删除）
+        git add -A
         
         # 提交更改
-        git commit -m "自动更新DJMV直播源 $(date '+%Y-%m-%d %H:%M:%S')"
+        git commit -m "自动更新DJMV直播源 $(date '+%Y-%m-%d %H:%M:%S')" || echo "没有可提交的更改"
         
-        # 推送更改
-        git push
+        # 强制推送更改
+        git push --force
