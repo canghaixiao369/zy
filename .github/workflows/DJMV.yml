@@ -25,12 +25,12 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y ffmpeg
-
+       
     - name: 安装Python依赖
       run: |
         python -m pip install --upgrade pip
         pip install requests aiohttp
-
+        pip install requests aiohttp beautifulsoup4
     - name: 执行主脚本
       run: |
         python 172mv.py
