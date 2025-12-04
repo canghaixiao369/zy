@@ -8,57 +8,52 @@ on:
 jobs:
   run_script:
     runs-on: ubuntu-latest  # 使用最新的Ubuntu运行器
+    env:
+      TZ: Asia/Shanghai  # 设置时区为上海
 
     steps:
-    - name: 检出代码库  # 检出代码库
+    - name: 检出代码库
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # 获取完整历史记录
 
-    - name: 设置Python环境  # 设置Python环境
+    - name: 设置Python环境
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'  # 使用Python 3.10
+        python-version: '3.10'
 
-    - name: 缓存pip依赖项  # 缓存pip依赖项
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-
-    - name: 安装系统依赖  # 安装系统依赖
+    - name: 安装系统依赖
       run: |
         sudo apt-get update
         sudo apt-get install -y ffmpeg
 
-    - name: 安装Python依赖  # 安装Python依赖
+    - name: 安装Python依赖
       run: |
         python -m pip install --upgrade pip
         pip install requests aiohttp
 
-    - name: 执行主脚本  # 执行主脚本
+    - name: 执行主脚本
       run: |
         python new.py
 
-   - name: 如果有更改，则提交并推送
-  run: |
-    git config --local user.email "772109739@qq.com"
-    git config --local user.name "沧海笑"
-    
-    # 先获取最新更改，但不要合并
-    git fetch origin
-    
-    # 重置到远程最新版本
-    git reset --hard origin/main
-    
-    # 重新添加所有文件（包含新生成的）
-    git add -A
-    
-    if ! git diff --staged --quiet; then
-      git commit -m "Auto-update live files $(date '+%Y-%m-%d %H:%M:%S')"
-      git push
-    else
-      echo "没有更改需要提交"
-    fi
-    env:
-      TZ: Asia/Shanghai  # 设置时区为上海
+    - name: 检查是否有更改并提交
+      if: success()
+      run: |
+        # 配置Git用户
+        git config --global user.email "772109739@qq.com"
+        git config --global user.name "沧海笑"
+        
+        # 检查tv/糖豆.txt是否有更改
+        if git diff --quiet HEAD tv/糖豆.txt; then
+          echo "没有检测到tv/糖豆.txt文件的更改"
+          exit 0
+        fi
+        
+        # 只添加tv/糖豆.txt文件
+        git add tv/糖豆.txt
+        
+        # 提交更改
+        git commit -m "自动更新糖豆直播源 $(date '+%Y-%m-%d %H:%M:%S')"
+        
+        # 推送更改
+        git push
