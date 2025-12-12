@@ -1,7 +1,29 @@
 {
     "spider": "",
     "sites": [
-    
+       {  
+        "key": "tancebe2",
+      "name": "T4-糖豆自写2",
+      "type": 1,
+      "api": "http://149.104.21.131:5080/tangdou.php",
+      "playUrl": "",
+          "searchable": 0,
+          "quickSearch": 0,
+          "filterable": 0
+
+        },
+        {  
+        "key": "tancebe",
+      "name": "T4-糖豆自写",
+      "type": 1,
+      "api": "https://zjk.xozv.top/debug.php",
+      "playUrl": "",
+          "searchable": 0,
+          "quickSearch": 0,
+          "filterable": 0
+
+        },
+        
         {
             "key": "T4-tangdou",
             "name": "音乐-糖豆(T4)",

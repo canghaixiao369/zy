@@ -2,6 +2,17 @@
     "spider": "",
     "wallpaper": "https://bing.img.run/rand.php",
     "sites": [
+    {
+            "key": "py_tangdou",
+            "name": "糖豆",
+            "type": 3,
+            "api": "./py/tangdou.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2
+        },
    {
             "key": "py_xiaokeyunyue",
             "name": "小可音乐",

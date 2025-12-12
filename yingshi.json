@@ -138,6 +138,50 @@
             "ext": "./JS/百忙无果.js"
         },
         {
+            "key": "梨园春",
+            "name": "🎡梨园戏曲–APP",
+            "type": 3,
+            "api": "csp_AppLY",
+            "jar": "./jar/lzxw.png",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.0009
+            }
+        },
+        
+        {  
+        "key": "tancebe2",
+      "name": "T4-糖豆自写2",
+      "type": 1,
+      "api": "http://149.104.21.131:5080/tangdou.php",
+      "playUrl": "",
+          "searchable": 0,
+          "quickSearch": 0,
+          "filterable": 0
+
+        },
+        {  
+        "key": "tancebe",
+      "name": "T4-糖豆自写",
+      "type": 1,
+      "api": "https://zjk.xozv.top/debug.php",
+      "playUrl": "",
+          "searchable": 0,
+          "quickSearch": 0,
+          "filterable": 0
+
+        },
+        {
+            "key": "T4-tangdou",
+            "name": "音乐-糖豆(T4)",
+            "type": 4,
+            "api": "https://catbox.n13.club/t9/tangdou.php"
+        },
+        
+        {
             "key": "Wexokconfig",
             "name": "🐮影视专用┃配置中心🐮",
             "type": 3,

@@ -124,7 +124,8 @@ CGTN俄语,http://zjk.xozv.top/bfgd.php?id=309
 
 
 河南PHP,#genre#
-
+梨园戏曲,http://1.94.31.214/php/hntv.php?id=hnly
+梨园戏曲,http://150.158.10.195:80/dxxw.php?id=hnly
 河南卫视,http://zjk.xozv.top/河南.php?id=hnws
 河南都市,http://zjk.xozv.top/河南.php?id=hnds
 河南民生,http://zjk.xozv.top/河南.php?id=hnms
