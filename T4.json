@@ -1,11 +1,52 @@
 {
     "spider": "",
     "sites": [
+    {
+  "key": "iptv345_live",
+  "name": "IPTV345直播",
+  "type": 3,
+  "api": "./py/iptv345.py",
+  "ext": "{\"proxy\":\"\"}"
+},
+       {  
+        "key": "tancebe3",
+      "name": "T4-糖豆-测试",
+      "type": 1,
+      "api": "https://zjk.xozv.top/tangdou-测试.php",
+      "playUrl": "",
+          "searchable": 0,
+          "quickSearch": 0,
+          "filterable": 0
+
+        },
        {  
         "key": "tancebe2",
       "name": "T4-糖豆自写2",
       "type": 1,
       "api": "http://149.104.21.131:5080/tangdou.php",
+      "playUrl": "",
+          "searchable": 0,
+          "quickSearch": 0,
+          "filterable": 0
+
+        },
+        
+         {  
+        "key": "tance",
+      "name": "T4-糖豆tangdou",
+      "type": 1,
+      "api": "https://zjk.xozv.top/tangdou.php",
+      "playUrl": "",
+          "searchable": 0,
+          "quickSearch": 0,
+          "filterable": 0
+
+        },
+        {  
+        "key": "tanc",
+      "name": "T4-糖豆本地",
+      "type": 1,
+      "api": "http://10.16.210.250:8080",
       "playUrl": "",
           "searchable": 0,
           "quickSearch": 0,

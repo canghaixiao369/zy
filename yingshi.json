@@ -1,7 +1,13 @@
 {
     "lives": [
-        
-        
+        {
+            "name": "自用咪咕",
+            "type": 0,
+            "playerType": 2,
+            "url": "http://8.145.55.221:1111/",
+            "ua": "okhttp/4.1.0",
+            "epg": "https://epg.112114.eu.org/?ch={name}&date={date}"
+        },
         {
             "name": "河南电视",
             "type": 0,
@@ -10,7 +16,14 @@
             "ua": "okhttp/4.1.0",
             "epg": "https://epg.112114.eu.org/?ch={name}&date={date}"
         },
-        
+        {
+            "name": "咪咕720",
+            "type": 0,
+            "playerType": 2,
+            "url": "./tv/migu720plist.txt",
+            "ua": "okhttp/4.1.0",
+            "epg": "https://epg.112114.eu.org/?ch={name}&date={date}"
+        },
         {
             "name": "冰茶",
             "type": 0,
@@ -19,7 +32,6 @@
             "ua": "okhttp/4.1.0",
             "epg": "https://epg.112114.eu.org/?ch={name}&date={date}"
         },
-        
         {
             "name": "自维护源",
             "type": 0,
@@ -152,27 +164,75 @@
             }
         },
         
-        {  
-        "key": "tancebe2",
-      "name": "T4-糖豆自写2",
-      "type": 1,
-      "api": "http://149.104.21.131:5080/tangdou.php",
-      "playUrl": "",
-          "searchable": 0,
-          "quickSearch": 0,
-          "filterable": 0
-
+        {
+            "key": "糖豆py1",
+            "name": "🚗┃糖豆┃py-完美",
+            "type": 3,
+            "api": "./py/糖豆广场舞1.py",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "changeable": 0
         },
-        {  
-        "key": "tancebe",
-      "name": "T4-糖豆自写",
-      "type": 1,
-      "api": "https://zjk.xozv.top/debug.php",
-      "playUrl": "",
-          "searchable": 0,
-          "quickSearch": 0,
-          "filterable": 0
-
+        {
+            "key": "糖豆py",
+            "name": "🚗┃糖豆┃py-分类",
+            "type": 3,
+            "api": "./py/糖豆广场舞.py",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "changeable": 0
+        },
+        {
+            "key": "guazi",
+            "name": "T4-瓜子",
+            "type": 1,
+            "api": "https://catbox.n13.club/ai/瓜子影视.php",
+            "playUrl": "",
+            "searchable": 0,
+            "quickSearch": 0,
+            "filterable": 0
+        },
+        {
+            "key": "tuxiaobei",
+            "name": "T4-兔小贝",
+            "type": 1,
+            "api": "https://8.145.55.221/T4/tuxiaobei.php",
+            "playUrl": "",
+            "searchable": 0,
+            "quickSearch": 0,
+            "filterable": 0
+        },
+        {
+            "key": "beilehu",
+            "name": "T4-贝乐虎",
+            "type": 1,
+            "api": "https://8.145.55.221/T4/beilehu.php",
+            "playUrl": "",
+            "searchable": 0,
+            "quickSearch": 0,
+            "filterable": 0
+        },
+        {
+            "key": "tancebe2",
+            "name": "T4-糖豆自写2",
+            "type": 1,
+            "api": "https://8.145.55.221/T4/tangdou.php",
+            "playUrl": "",
+            "searchable": 0,
+            "quickSearch": 0,
+            "filterable": 0
+        },
+        {
+            "key": "tancebe",
+            "name": "T4-糖豆自写",
+            "type": 1,
+            "api": "https://8.145.55.221/T4/tangdou-T4完美可用.php",
+            "playUrl": "",
+            "searchable": 0,
+            "quickSearch": 0,
+            "filterable": 0
         },
         {
             "key": "T4-tangdou",
@@ -180,7 +240,6 @@
             "type": 4,
             "api": "https://catbox.n13.club/t9/tangdou.php"
         },
-        
         {
             "key": "Wexokconfig",
             "name": "🐮影视专用┃配置中心🐮",
@@ -381,7 +440,7 @@
             "quickSearch": 1,
             "filterable": 1,
             "order_num": 0,
-            "ext": "./JS/直播转点播[合].js?type=url&params=../json/live2cms.json"
+            "ext": "./JS/直播转点播[合].js?type=url¶ms=../json/live2cms.json"
         },
         {
             "key": "PikPakShare",
@@ -701,9 +760,16 @@
             "quickSearch": 1,
             "filterable": 1
         },
-        
-        {"key": "瓜子py","name": "🚗┃瓜子┃py","type": 3,"api": "./py/瓜子.py","searchable": 1,"quickSearch": 0,"filterable": 0,"changeable": 0},	
-        
+        {
+            "key": "瓜子py",
+            "name": "🚗┃瓜子┃py",
+            "type": 3,
+            "api": "./py/瓜子.py",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "changeable": 0
+        },
         {
             "key": "华数",
             "name": "🐷星华｜星源",
@@ -1161,16 +1227,16 @@
                 "请求头": "User-Agent$MOBILE_UA",
                 "主页url": "",
                 "搜索url": "https://www.newfii.com/vodsearch/{wd}----------{pg}---.html",
-                "播放组数": "module-blocklist&&</div>",
+                "播放组数": "module-blocklist&&",
                 "跳转播放链接": "var player_*url\":\"&&\"",
                 "跳转解析": "默认$var Player*url=",
-                "数组": "module-item&&</div>",
-                "线路标题": "<span>&&</span>",
+                "数组": "module-item&&",
+                "线路标题": "&&",
                 "标题": "title=\"&&\"",
                 "图片": "data-src=\"&&\"",
-                "副标题": ">&&</div>",
-                "线路数组": "module-tab-item tab-item&&</div>",
-                "简介": "<span>&&</span>",
+                "副标题": ">&&",
+                "线路数组": "module-tab-item tab-item&&",
+                "简介": "&&",
                 "链接": "href=\"&&\"",
                 "分类url": "https://www.newfii.com/vodshow/{cateId}-{area}-{by}-{class}-{lang}-{letter}---{catePg}---{year}.html",
                 "分类": "电影$1#剧集$2#综艺$4#动漫$3#记录片$5#B站$39#短剧$53#体育$45#私密$52",
@@ -1367,7 +1433,7 @@
             "jar": "./jar/xyqxbpq.jar",
             "ext": {
                 "简介": "沧海笑为您剧情介绍:+简介：&&",
-                "\u526f\u6807\u9898": "\u516c\u5b50\u4e13\u5c5e",
+                "副标题": "公子专属",
                 "线路标题": "panel-hd\">&&",
                 "分类url": "https://www.shanhuzs.com/fqsansw/5-{area}--{cateId}-----{catePg}---{year}.html",
                 "分类": "女频$女频恋爱#反转$反转爽#悬疑$脑洞悬疑#穿越$年代穿越#古装$古装仙侠#都市$现代都市"
@@ -2036,94 +2102,32 @@
                 "主页url": "https://dayuya.com/index.php/vod/show/id/33.html",
                 "首页": "120",
                 "起始页": "1",
-                "数组": "/vod/detail/id/&&/div></div>",
+                "数组": "/vod/detail/id/&&/div>",
                 "标题": "title=\"&&\"",
                 "图片": "data-original=\"&&\"",
                 "副标题": "text\">&&<",
                 "链接": "/index.php/vod/detail/id/+&&\"",
-                "线路数组": "data-dropdown&&</div>",
-                "线路标题": "✨+<span>&&</+【共+<small>&&</+集】",
-                "搜索模式": "1",
-                "搜索url": "/index.php/ajax/suggest?mid=1&wd={wd}&page={pg}&limit=30",
-                "搜索数组": "list",
-                "搜索标题": "name",
-                "搜索图片": "pic",
-                "搜索副标题": "en",
-                "搜索链接": "'/index.php/vod/detail/id/'+id+'.html'",
-                "简介": "✨沧海笑提醒您:【请不要相信视频中的广告，以免上当受骗!】",
-                "分类url": "https://dayuya.com/index.php/vod/show/id/{cateId}/page/{catePg}.html",
-                "分类": "虐恋$60#古装仙侠$41#逆袭$61#悬疑$62#神豪$63#重生$64#复仇$65#穿越$66#甜宠$67#强者$68#萌宝$69#其它$70#合集$71"
-            }
-        },
-        {
-            "key": "好帅短剧",
-            "name": "✨好帅短剧✨",
-            "type": 3,
-            "api": "csp_XBPQ",
-            "jar": "./jar/xyqxbpq.jar",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "ext": {
-                "作者": "乐哥20041011",
-                "站名": "你好帅影院",
-                "请求头": "User-Agent$MOBILE_UA",
-                "编码": "UTF-8",
-                "主页url": "https://nhsyy.com",
-                "二次截取": "module-items\"&&id=\"page[替换:module-footer>>module-item]",
+                "线路数组": "data-dropdown&&",
+                "线路标题": "✨+&&&&>module-item]",
                 "数组": "module-item-pic&&module-item\"",
                 "标题": "title=\"&&\"",
                 "图片": "data-src=\"&&\"",
-                "副标题": "✨+item-text\">&&</",
-                "链接": "href=\"&&\"",
-                "线路数组": "data-dropdown&&</div>",
-                "线路标题": "✨沧海笑✨+<span>&&</+【共+<small>&&<+集】",
-                "播放数组": "-blocklist\">&&</div>",
-                "播放列表": "<a&&a>",
+                "副标题": "✨+item-text\">&&",
+                "线路标题": "✨沧海笑✨+&&&&<+集】",
+                "播放数组": "-blocklist\">&&",
+                "播放列表": "",
                 "播放链接": "href=\"&&\"",
-                "播放标题": "✨+<span>&&</",
-                "跳转播放链接": "var player_*\"url\":\"&&\"",
-                "搜索模式": "1",
-                "搜索url": "https://nhsyy.com/vodsearch/{wd}----------{pg}---.html",
-                "分类url": "https://nhsyy.com/vodshwo/{cateId}--------{catePg}---.html",
-                "分类": "穿越$fenle#战神$fenlei2#重生$fenlei3#爱情$fenlei4#萌娃$guda#神医$shenyi#古代$gudai#玄幻$xuanhuan#言情$yanqing"
-            }
-        },
-        {
-            "key": "✨唐人街影院✨",
-            "name": "✨唐人街短剧✨",
-            "type": 3,
-            "api": "csp_XBPQ",
-            "jar": "./jar/xyqxbpq.jar",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "ext": "./json/唐人街短剧.json"
-        },
-        {
-            "key": "爱你短剧",
-            "name": "✨爱你短剧✨",
-            "type": 3,
-            "api": "csp_XBPQ",
-            "jar": "./jar/xyqxbpq.jar",
-            "ext": {
-                "请求头": "User-Agent$MOBILE_UA",
-                "编码": "UTF-8",
-                "主页url": "https://ainidj.com/",
-                "二次截取": "module-items\"&&id=\"page[替换:module-footer>>module-item]",
+                "播放标题": "✨+&&>module-item]",
                 "数组": "module-item-pic&&module-item\"",
                 "图片": "data-src=\"&&\"",
                 "标题": "title=\"&&\"",
-                "副标题": "✨+module-item-text\">&&</div>",
+                "副标题": "✨+module-item-text\">&&",
                 "链接": "href=\"&&\"",
                 "简介": "✨沧海笑祝各位观影愉快！！！",
-                "播放数组": "blocklist\">&&</div>",
-                "播放列表": "<a&&a>",
+                "播放数组": "blocklist\">&&",
+                "播放列表": "",
                 "播放链接": "href=\"&&\"",
-                "播放标题": "✨+<span>&&</",
-                "搜索模式": "1",
-                "搜索url": "https://ainidj.com/vodsearch/{wd}----------{pg}---.html",
-                "搜索数组": "lazyload\"&&</a>",
+                "播放标题": "✨+&&",
                 "搜索标题": "title=\"&&\"",
                 "搜索图片": "data-src=\"&&\"",
                 "搜索链接": "href=\"&&\"",
@@ -2146,15 +2150,12 @@
                 "标题": "title=\"&&\"",
                 "图片": "data-original=\"&&\"",
                 "副标题": "✨+item-text\">&&<",
-                "线路数组": "dropdown&&</div>",
-                "线路标题": "✨沧海笑✨+<span>&&</+【共+<small>&&<+集】",
-                "播放数组": "id=\"sort-item&&</div>",
-                "播放列表": "<a&&a>",
+                "线路数组": "dropdown&&",
+                "线路标题": "✨沧海笑✨+&&&&<+集】",
+                "播放数组": "id=\"sort-item&&",
+                "播放列表": "",
                 "播放链接": "href=\"&&\"",
-                "播放标题": "✨+<span>&&</",
-                "搜索模式": "1",
-                "搜索url": "https://wo.ikan4k.com/index.php/vod/search/page/{pg}/wd/{wd}.html",
-                "简介": "✨沧海笑为您介绍剧情✨+vod_content\">&&</span>",
+                "播放标题": "✨+&&&&",
                 "分类url": "https://wo.ikan4k.com/index.php/vod/show/id/{cateId}/page/{catePg}.html",
                 "分类": "女频恋爱$32#反转爽剧$33#脑洞悬疑$34#年代穿越$35#古装仙侠$36#现代都市$37"
             }
@@ -2345,19 +2346,16 @@
                 "请求头": "User-Agent$MOBILE_UA",
                 "编码": "UTF-8",
                 "主页url": "https://www.qdhuhang.com/qdhyl/48.html",
-                "数组": "part-2by3\"&&/a><span",
-                "标题": "html\">&&<",
+                "数组": "part-2by3\"&&/a>&&<",
                 "副标题": "✨+center\">&&<",
                 "图片": "data-original=\"&&\"",
                 "链接": "href=\"&&\"",
                 "线路数组": "ico_play.png&&/span>",
                 "线路标题": "✨沧海笑✨+>&&<",
-                "播放数组": "clearfix list&&</ul>",
-                "播放列表": "<a&&a>",
+                "播放数组": "clearfix list&&",
+                "播放列表": "",
                 "播放链接": "href=\"&&\"",
-                "播放标题": "✨+>&&</",
-                "跳转播放链接": "var now=\"&&\"",
-                "简介": "✨沧海笑为您介绍剧情✨+讲述了:&&\">[替换:style type=\"text/css>>空]",
+                "播放标题": "✨+>&&[替换:style type=\"text/css>>空]",
                 "分类url": "https://www.qdhuhang.com/qdhyl/{cateId}-{catePg}.html",
                 "分类": "女频剧$49#反转剧$50#穿越剧$51#古装剧$52#都市剧$53#脑洞剧$54#爽文剧$55"
             }
@@ -2449,9 +2447,9 @@
                 "简介": "沧海笑祝您观影愉快",
                 "二次截取": "\"module-items\"&&\"module-footer\"+\"module-item\"",
                 "数组": "\"module-item-cover\"&&\"module-item\"",
-                "副标题": "module-item-text\">&&</div>",
-                "播放数组": "\"scroll-content\"&&</div>",
-                "线路数组": "data-dropdown-value=&&</div>[不包含:夸克]",
+                "副标题": "module-item-text\">&&",
+                "播放数组": "\"scroll-content\"&&",
+                "线路数组": "data-dropdown-value=&&[不包含:夸克]",
                 "分类": "短剧$59",
                 "分类url": "https://www.6080yy4.com/vodshow/{cateId}-{area}-{by}-{class}-----{catePg}---{year}.html"
             },
@@ -2466,15 +2464,16 @@
             "quickSearch": 1,
             "filterable": 1,
             "ext": {
-                "简介": "class=\"detail-desc\">&&</p>",
-                "数组": "module-item&&</a>",
-                "副标题": "v-item-bottom\">&&</div>",
+                "简介": "class=\"detail-desc\">&&
+",
+                "数组": "module-item&&",
+                "副标题": "v-item-bottom\">&&",
                 "图片": "https+://vres.a357899.cn+data-original=\"&&\"",
                 "导演": "导演:&&",
-                "演员": "演员:</div>&&</div>[替换:/>>空#更新>>更新]",
-                "影片年代": "首映:</div>&&</div>",
-                "线路数组": "source-item\">&&</a>[排序:蓝光>超清]",
-                "线路标题": "<spanclass=\"source-item-label\">&&</span>+-+source-item-num\">&&</i>[替换:线路>>空]",
+                "演员": "演员:&&[替换:/>>空#更新>>更新]",
+                "影片年代": "首映:&&",
+                "线路数组": "source-item\">&&[排序:蓝光>超清]",
+                "线路标题": "&&+-+source-item-num\">&&[替换:线路>>空]",
                 "搜索url": "https://www.dushe7.app/search?k={wd}&page={pg}",
                 "地区": "[替换:大陆>>中国大陆#香港>>中国香港#台湾>>中国台湾]",
                 "剧情": "[替换:伦理>>NETFLIX]",
@@ -2557,7 +2556,7 @@
                 "免嗅": "0",
                 "嗅探词": ".mp4#.m3u8#.flv",
                 "分类": "逆袭$1#甜宠$2#虐恋$3#穿越$4#重生$5",
-                "分类数组": "col-lg-5 col-md-5 col-sm-5 col-xs-3\">&&</li>",
+                "分类数组": "col-lg-5 col-md-5 col-sm-5 col-xs-3\">&&",
                 "分类ID": "/vodtype/&&.html"
             },
             "jar": "./jar/短剧tv.jar"
@@ -2582,9 +2581,9 @@
             "ext": {
                 "简介": "沧海笑祝您观影愉快",
                 "搜索url": "http://www.duanjutv.cc/vodsearch/{wd}----------{pg}---.html",
-                "线路标题": "<h3*>&&</h3>",
-                "线路数组": "\"more text-muted pull-right\">&&</ul>",
-                "播放数组": "\"more text-muted pull-right\">&&</ul>",
+                "线路标题": "&&",
+                "线路数组": "\"more text-muted pull-right\">&&",
+                "播放数组": "\"more text-muted pull-right\">&&",
                 "播放链接": "http+://www.duanjutv.cc+href='&&'",
                 "分类url": "http://www.duanjutv.cc/vodtype/{cateId}-{catePg}.html;;m",
                 "分类": "抖音短剧$20#快手短剧$21#视频号短剧$22#热播短剧$23"
@@ -2670,7 +2669,7 @@
             "quickSearch": 1,
             "filterable": 1,
             "order_num": 0,
-            "ext": "./JS/采集之王[合].js?type=url&params=../json/采集静态.json"
+            "ext": "./JS/采集之王[合].js?type=url¶ms=../json/采集静态.json"
         },
         {
             "key": "大米动漫",
@@ -5024,14 +5023,11 @@
             ]
         }
     ],
-    
     "hosts": [
-    "hlsztemgsplive.miguvideo.com=hlsztemgsplive.188766.xyz",
-    "cache.ott.fifalive.itv.cmvideo.cn=fifalive.188766.xyz",
-    "iptv.huuc.edu.cn=huucv6.188766.xyz"
-  ],
-    
-    
+        "hlsztemgsplive.miguvideo.com=hlsztemgsplive.188766.xyz",
+        "cache.ott.fifalive.itv.cmvideo.cn=fifalive.188766.xyz",
+        "iptv.huuc.edu.cn=huucv6.188766.xyz"
+    ],
     "ads": [
         "https://lf1-cdn-tos.bytegoofy.com/obj/tos-cn-i-dy/455ccf9e8ae744378118e4bd289288dd",
         "mimg.0c1q0l.cn",

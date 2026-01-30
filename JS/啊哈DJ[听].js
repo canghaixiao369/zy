@@ -1,1 +1,46 @@
-dmFyIHJ1bGUgPSB7CiAgICB0aXRsZTogJ+WViuWTiERKW+WQrF0nLAogICAgaG9zdDogJ2h0dHBzOi8vbS5haGFkai5jb20nLAogICAgdXJsOiAnL211c2ljL2lkLWZ5Y2xhc3MtZnlwYWdlLmh0bWwnLAogICAgY2xhc3NfcGFyc2U6ICdib2R5JiYuc29ydCYmYTthJiZUZXh0O2EmJmhyZWY7KFxcZCspJywKICAgIGhpa2VyTGlzdENvbDogIm1vdmllXzIiLAogICAgaGlrZXJDbGFzc0xpc3RDb2w6ICJtb3ZpZV8yIiwKICAgIHNlYXJjaGFibGU6IDIsCiAgICBxdWlja1NlYXJjaDogMCwKICAgIGZpbHRlcmFibGU6IDAsCiAgICBoZWFkZXJzOiB7CiAgICAgICAgJ1VzZXItQWdlbnQnOiAnTU9CSUxFX1VBJywKICAgIH0sCiAgICBwbGF5X3BhcnNlOiB0cnVlLAogICAgbGF6eTogJGpzLnRvU3RyaW5nKCgpID0+IHsKICAgICAgICBsZXQgaHRtbCA9IHJlcXVlc3QoaW5wdXQpOwogICAgICAgIGxldCBfdXJsID0gcGRmaChodG1sLCAndmlkZW8mJnNvdXJjZSYmc3JjJyk7CiAgICAgICAgaW5wdXQgPSB7cGFyc2U6IDAsIHVybDogX3VybCwganM6ICcnfTsKICAgIH0pLAogICAg5o6o6I2QOiAnKicsCiAgICBzZWFyY2hVcmw6ICcvc2VhcmNoLz9rZXk9KiomcGFnZT1meXBhZ2UuaHRtbCcsCiAgICDkuIDnuqc6ICcueWlueXVlX2xpc3QmJmxpO2EtLXNwYW4tLXNwYW4tLXNwYW4mJlRleHQ7aW1nJiZzcmM7c3BhbiYmVGV4dDthJiZocmVmJywKICAgIOS6jOe6pzogJyonLAogICAg5pCc57SiOiAnKicsCn0=
+/*
+@header({
+  searchable: 2,
+  filterable: 0,
+  quickSearch: 0,
+  title: '啊哈DJ[听]',
+  '类型': '影视',
+  lang: 'ds'
+})
+*/
+
+var rule = {
+    title: '啊哈DJ[听]',
+    host: 'https://m.ahadj.com',
+    url: '/music/id-fyclass-fypage.html',
+    class_parse: 'body&&.sort&&a;a&&Text;a&&href;(\\d+)',
+    hikerListCol: "movie_2",
+    hikerClassListCol: "movie_2",
+    searchable: 2,
+    quickSearch: 0,
+    filterable: 0,
+    headers: {
+        'User-Agent': 'MOBILE_UA',
+    },
+    play_parse: true,
+    lazy: async function () {
+        let {input, pdfh} = this;
+        // console.log('input:', input);
+        let html = await request(input);
+        let _url = pdfh(html, 'video&&source&&src');
+        return {
+            parse: 0,
+            url: _url,
+            js: '',
+            header: {
+                referer: 'https://m.ahadj.com/',
+                'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36'
+            }
+        };
+    },
+    推荐: '*',
+    searchUrl: '/search/?key=**&page=fypage.html',
+    一级: '.yinyue_list&&li;a--span--span--span&&Text;img&&src;span&&Text;a&&href',
+    二级: '*',
+    搜索: '*',
+}

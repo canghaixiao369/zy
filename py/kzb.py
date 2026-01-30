@@ -53,7 +53,7 @@ class Spider(Spider):
         a = ['#EXTM3U']
         
         try:
-            base_url = "https://kzb29rda.com/prod-api/iptv/getIptvList?liveType=0&deviceType=1"
+            base_url = "https://jzbkjs3n1.gaowenceshi.com/prod-api/iptv/getIptvList?liveType=1&deviceType=1"
             response = requests.get(base_url)
             response.raise_for_status()  # 自动抛出HTTP错误（如404/500）
 
