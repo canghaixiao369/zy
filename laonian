@@ -29,6 +29,20 @@
     "spider": "",
     "logo": "./logo/logo4.gif",
     "sites": [
+         {
+      "key": "梨园春",
+      "name": "🎡梨园戏曲–APP",
+      "type": 3,
+      "api": "csp_AppLY",
+      "jar": "./jar/lzxw.png",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.0009
+      }
+    },
         {
             "key": "戏曲",
             "name": "🅱戏曲大全",
